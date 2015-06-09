@@ -1,6 +1,6 @@
 Welcome to the TaStyTabs!
 
-TaStyTabs is TypeScript library for handling content in tabs. Any anchor ```<a href="#tab1">First</a>``` inside any element with ```<ul class="tabs">``` will show element with corresponding id attribute.
+TaStyTabs is a jQuery FREE TypeScript library for handling content in tabs. Any anchor ```<a href="#tab1">First</a>``` inside any element with ```<ul class="tabs">``` will show element with corresponding id attribute.
 
 For example:
 ```html
