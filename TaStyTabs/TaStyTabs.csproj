@@ -27,6 +27,8 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Tab.ts" />
+    <TypeScriptCompile Include="Tabs.ts" />
     <TypeScriptCompile Include="TaStyTabs.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -66,10 +68,17 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptOutFile>TaStyTabs.js</TypeScriptOutFile>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
     <TypeScriptSourceMap>false</TypeScriptSourceMap>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>uglifyjs "$(ProjectDir)$(ProjectName).js" -o "$(ProjectDir)$(ProjectName).min.js" -m -c sequences=true,dead_code=true,conditionals=true,booleans=true,unused=true,if_return=true,join_vars=true,drop_console=true
+exit</PostBuildEvent>
+  </PropertyGroup>
 </Project>
