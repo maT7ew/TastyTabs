@@ -22,6 +22,8 @@ All you have to do is add following code inside your ```<head>``` tag:
 ```
 or you can download it from repository.
 
+Working JSFiddle example: https://jsfiddle.net/maT7ew/6b8s30h3/
+
 TaStyTabs library provides an additional functionality over other libraries such as:
 * open the right tab when you open a page with hash in URL
 * instance is accesible from ```window.tabs``` and provides methods ```hideAllTabs()```, ```showTab(tab: string)``` and ```refresh()```
