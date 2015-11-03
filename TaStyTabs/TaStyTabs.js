@@ -1,138 +1,83 @@
+/// <reference path="DefinitelyTyped/jquery.d.ts"/>
 var TaStyTabs;
 (function (TaStyTabs) {
     var Tab = (function () {
-        function Tab(id, tabElement, displayStyle) {
-            this._id = id.replace('#', '');
-            this._tabElement = tabElement;
-            this.displayStyle = displayStyle;
+        function Tab(element) {
+            this.element = element;
         }
-        Object.defineProperty(Tab.prototype, "id", {
-            get: function () {
-                return this._id;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Tab.prototype, "element", {
-            get: function () {
-                if (!this._element)
-                    this._element = document.getElementById(this.id);
-                return this._element;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Tab.prototype, "tabElement", {
-            get: function () {
-                return this._tabElement;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Tab.prototype.hide = function () {
-            this.element.style.display = 'none';
+        Tab.prototype.getContentElement = function () {
+            return jQuery('#' + this.getContentId());
+        };
+        Tab.prototype.getContentId = function () {
+            return this.element.attr('href').replace('#', '');
         };
         Tab.prototype.show = function () {
-            this.element.style.display = this.displayStyle;
+            this.getContentElement().show();
         };
-        Tab.prototype.isActive = function () {
-            return !(this.element.style.display == 'none');
-        };
-        Tab.click = function (e) {
-            e.preventDefault();
-            return false;
-        };
-        Tab.prototype.addEventListener = function () {
-            this.tabElement.addEventListener('click', Tab.click, false);
-        };
-        Tab.prototype.removeEventListener = function () {
-            this.tabElement.removeEventListener('click', Tab.click, false);
+        Tab.prototype.hide = function () {
+            this.getContentElement().hide();
         };
         return Tab;
     })();
     TaStyTabs.Tab = Tab;
 })(TaStyTabs || (TaStyTabs = {}));
-/// <reference path="Tab.ts" />
+/// <reference path="DefinitelyTyped/jquery.d.ts"/>
+/// <reference path="Tab.ts"/>
 var TaStyTabs;
 (function (TaStyTabs) {
     var Tabs = (function () {
-        function Tabs(cssClass, displayStyle) {
-            if (displayStyle === void 0) { displayStyle = 'block'; }
-            this.tabs = [];
-            this.cssClass = cssClass;
-            this.displayStyle = displayStyle;
-            this.init();
+        function Tabs(element) {
+            this.tabs = new Array();
+            var that = this;
+            element.find('a').each(function () {
+                var tab = new TaStyTabs.Tab($(this));
+                $(this).click(function () {
+                    that.show($(this).attr('href').replace('#', ''));
+                    return false;
+                });
+                that.tabs.push(tab);
+            });
         }
-        Tabs.prototype.init = function () {
-            this.clearTabs();
-            this.loadTabs();
-            this.showTab(this.getTabById(this.getIdFromHash()));
-            this.registerOnClickListeners();
+        Tabs.prototype.hide = function (id) {
+            for (var i = 0; i < this.tabs.length; i++)
+                if (id === null || this.tabs[i].getContentId() == id)
+                    this.tabs[i].hide();
         };
-        Tabs.prototype.clearTabs = function () {
-            this.tabs.splice(0, this.tabs.length);
+        Tabs.prototype.show = function (id) {
+            for (var i = 0; i < this.tabs.length; i++)
+                if (id === null || this.tabs[i].getContentId() == id) {
+                    this.hide(null);
+                    this.tabs[i].show();
+                    if (id === null)
+                        break;
+                }
         };
-        Tabs.prototype.loadTabs = function () {
-            var elements = document.querySelectorAll('.' + this.cssClass + ' a');
-            for (var index = 0; index < elements.length; index++) {
-                var element = elements[index];
-                var id = element.getAttribute('href');
-                if (!id)
-                    continue;
-                this.tabs.push(new TaStyTabs.Tab(id, element, this.displayStyle));
-            }
-        };
-        Tabs.prototype.getTabById = function (id) {
-            for (var index = 0; index < this.tabs.length; index++)
-                if (this.tabs[index].id == id)
-                    return this.tabs[index];
-            return this.tabs[0];
-        };
-        Tabs.prototype.getActiveTab = function () {
-            for (var index = 0; index < this.tabs.length; index++)
-                if (this.tabs[index].isActive())
-                    return this.tabs[index];
-            return this.tabs[0];
-        };
-        Tabs.prototype.registerOnClickListeners = function () {
-            for (var index = 0; index < this.tabs.length; index++) {
-                this.tabs[index].addEventListener();
-                this.tabs[index].tabElement.addEventListener('click', this.showTab.bind(this, this.tabs[index]), false);
-            }
-        };
-        Tabs.prototype.unregisterOnClickListeners = function () {
-            for (var index = 0; index < this.tabs.length; index++) {
-                this.tabs[index].removeEventListener();
-                this.tabs[index].tabElement.removeEventListener('click', this.showTab.bind(this, this.tabs[index]), false);
-            }
-        };
-        Tabs.prototype.getIdFromHash = function () {
-            return window.location.hash.replace('#', '');
-        };
-        Tabs.prototype.hideAllTabs = function () {
-            for (var index = 0; index < this.tabs.length; index++)
-                this.tabs[index].hide();
-        };
-        Tabs.prototype.showTab = function (tab) {
-            if (typeof tab === 'string')
-                tab = this.getTabById(tab);
-            this.hideAllTabs();
-            tab.show();
-        };
-        Tabs.prototype.refresh = function () {
-            var active = this.getActiveTab();
-            this.unregisterOnClickListeners();
-            this.clearTabs();
-            this.loadTabs();
-            this.showTab(this.getTabById(active.id));
-            this.registerOnClickListeners();
+        Tabs.prototype.showTabByUrlAnchor = function () {
+            this.show(window.location.hash.replace('#', ''));
         };
         return Tabs;
     })();
     TaStyTabs.Tabs = Tabs;
 })(TaStyTabs || (TaStyTabs = {}));
-/// <reference path="Tabs.ts" />
-window.onload = function () {
-    window['tabs'] = new TaStyTabs.Tabs('tabs');
-};
+/// <reference path="DefinitelyTyped/jquery.d.ts"/>
+/// <reference path="Tabs.ts"/>
+(function ($) {
+    $.fn.tastyTabs = function (options) {
+        options = $.extend({
+            // These are the defaults.
+            urlAnchor: true
+        }, options);
+        this.each(function () {
+            var tabs = new TaStyTabs.Tabs($(this));
+            if (options.urlAnchor && window.location.hash.length > 1)
+                tabs.showTabByUrlAnchor();
+            else
+                tabs.show(null);
+        });
+        return this;
+    };
+    $(function () {
+        $('.tastyTabs').tastyTabs({});
+    });
+}(jQuery));
 //# sourceMappingURL=TaStyTabs.js.map
