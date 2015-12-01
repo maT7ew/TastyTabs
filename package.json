@@ -1,0 +1,30 @@
+{
+  "name": "tastytabs",
+  "version": "2.0.3",
+  "description": "TaStyTabs is a jQuery plugin for handling content in tabs.",
+  "main": "TaStyTabs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maT7ew/TaStyTabs"
+  },
+  "dependencies": {
+    "jquery": ">=1.3.2"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "tab",
+    "tabs",
+    "jquery"
+  ],
+  "author": "Matěj Marčišovský",
+  "email": "matejmarcisovsky@outlook.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maT7ew/TaStyTabs/issues"
+  },
+  "homepage": "https://github.com/maT7ew/TaStyTabs"
+}
