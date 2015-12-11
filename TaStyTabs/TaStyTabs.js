@@ -1,6 +1,6 @@
-/// <reference path="DefinitelyTyped/jquery.d.ts"/>
-var TaStyTabs;
-(function (TaStyTabs) {
+/// <reference path="Scripts/typings/jquery/jquery.d.ts"/>
+var TastyTabs;
+(function (TastyTabs) {
     var Tab = (function () {
         function Tab(element) {
             this.element = element;
@@ -19,18 +19,18 @@ var TaStyTabs;
         };
         return Tab;
     })();
-    TaStyTabs.Tab = Tab;
-})(TaStyTabs || (TaStyTabs = {}));
-/// <reference path="DefinitelyTyped/jquery.d.ts"/>
+    TastyTabs.Tab = Tab;
+})(TastyTabs || (TastyTabs = {}));
+/// <reference path="Scripts/typings/jquery/jquery.d.ts"/>
 /// <reference path="Tab.ts"/>
-var TaStyTabs;
-(function (TaStyTabs) {
+var TastyTabs;
+(function (TastyTabs) {
     var Tabs = (function () {
         function Tabs(element) {
             this.tabs = new Array();
             var that = this;
             element.find('a').each(function () {
-                var tab = new TaStyTabs.Tab($(this));
+                var tab = new TastyTabs.Tab($(this));
                 $(this).click(function () {
                     that.show($(this).attr('href').replace('#', ''));
                     return false;
@@ -57,9 +57,9 @@ var TaStyTabs;
         };
         return Tabs;
     })();
-    TaStyTabs.Tabs = Tabs;
-})(TaStyTabs || (TaStyTabs = {}));
-/// <reference path="DefinitelyTyped/jquery.d.ts"/>
+    TastyTabs.Tabs = Tabs;
+})(TastyTabs || (TastyTabs = {}));
+/// <reference path="Scripts/typings/jquery/jquery.d.ts"/>
 /// <reference path="Tabs.ts"/>
 (function ($) {
     $.fn.tastyTabs = function (options) {
@@ -68,7 +68,7 @@ var TaStyTabs;
             urlAnchor: true
         }, options);
         this.each(function () {
-            var tabs = new TaStyTabs.Tabs($(this));
+            var tabs = new TastyTabs.Tabs($(this));
             if (options.urlAnchor && window.location.hash.length > 1)
                 tabs.showTabByUrlAnchor();
             else
@@ -80,4 +80,4 @@ var TaStyTabs;
         $('.tastyTabs').tastyTabs({});
     });
 }(jQuery));
-//# sourceMappingURL=TaStyTabs.js.map
+//# sourceMappingURL=TastyTabs.js.map

@@ -1,6 +1,6 @@
-﻿/// <reference path="DefinitelyTyped/jquery.d.ts"/>
+﻿/// <reference path="Scripts/typings/jquery/jquery.d.ts"/>
 
-module TaStyTabs {
+module TastyTabs {
     export class Tab {
         private element: JQuery;
 

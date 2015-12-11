@@ -1,6 +1,6 @@
-Welcome to the TaStyTabs!
+Welcome to the TastyTabs!
 
-TaStyTabs is a jQuery plugin for handling content in tabs. Any anchor ```<a href="#tab1">First</a>``` inside any element with ```<ul class="tastyTabs">``` will show element with corresponding id attribute.
+TastyTabs is a jQuery plugin for handling content in tabs. Any anchor ```<a href="#tab1">First</a>``` inside any element with ```<ul class="tastyTabs">``` will show element with corresponding id attribute.
 
 For example:
 ```html
@@ -21,7 +21,7 @@ For example:
 
 All you have to do is add following code inside your ```<head>``` tag:
 ```html
-<script src="http://cdn.itsatrap.cz/tastytabs/TaStyTabs.min.js"></script>
+<script src="http://cdn.itsatrap.cz/tastytabs/tastytabs.min.js"></script>
 ```
 or you can download it from repository.
 
@@ -34,6 +34,6 @@ $(function () {
 });
 ```
 
-TaStyTabs library provides an additional functionality over other libraries such as:
+TastyTabs library provides an additional functionality over other libraries such as:
 * open the right tab when you open a page with hash in URL
 * small size (1350 bytes)

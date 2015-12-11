@@ -1,4 +1,4 @@
-﻿/// <reference path="DefinitelyTyped/jquery.d.ts"/>
+﻿/// <reference path="Scripts/typings/jquery/jquery.d.ts"/>
 /// <reference path="Tabs.ts"/>
 
 (function ($) {
@@ -9,7 +9,7 @@
         }, options);
 
         this.each(function () {
-            var tabs = new TaStyTabs.Tabs($(this));
+            var tabs = new TastyTabs.Tabs($(this));
             if (options.urlAnchor && window.location.hash.length > 1)
                 tabs.showTabByUrlAnchor();
             else

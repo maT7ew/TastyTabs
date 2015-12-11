@@ -1,5 +1,5 @@
-/// <reference path="DefinitelyTyped/jquery.d.ts" />
-declare module TaStyTabs {
+/// <reference path="Scripts/typings/jquery/jquery.d.ts" />
+declare module TastyTabs {
     class Tab {
         private element;
         constructor(element: JQuery);
@@ -9,7 +9,7 @@ declare module TaStyTabs {
         hide(): void;
     }
 }
-declare module TaStyTabs {
+declare module TastyTabs {
     class Tabs {
         private tabs;
         constructor(element: JQuery);
