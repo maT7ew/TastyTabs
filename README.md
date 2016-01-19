@@ -21,7 +21,7 @@ For example:
 
 All you have to do is add following code inside your ```<head>``` tag:
 ```html
-<script src="http://cdn.itsatrap.cz/tastytabs/tastytabs.min.js"></script>
+<script src="http://example.com/tastytabs.min.js"></script>
 ```
 or you can download it from repository.
 
