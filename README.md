@@ -1,4 +1,4 @@
-Welcome to the TastyTabs!
+#Welcome to the TastyTabs!
 
 TastyTabs is a jQuery plugin for handling content in tabs. Any anchor ```<a href="#tab1">First</a>``` inside any element with ```<ul class="tastyTabs">``` will show element with corresponding id attribute.
 
@@ -21,9 +21,9 @@ For example:
 
 All you have to do is add following code inside your ```<head>``` tag:
 ```html
-<script src="http://example.com/tastytabs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.tastytabs/2.0.6/TastyTabs.min.js"></script>
 ```
-or you can download it from repository.
+or you can download it from repository and add to your site manually.
 
 You can use your own selector:
 ```JavaScript
