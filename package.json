@@ -1,78 +1,30 @@
 {
-  "_args": [
-    [
-      "tastytabs",
-      "C:\\Users\\ZalmanPC\\Documents\\npm"
-    ]
-  ],
-  "_from": "tastytabs@*",
-  "_id": "tastytabs@2.0.6",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/tastytabs",
-  "_nodeVersion": "5.0.0",
-  "_npmUser": {
-    "email": "matejmarcisovsky@outlook.com",
-    "name": "mat7ew"
+  "name": "tastytabs",
+  "version": "2.0.7",
+  "description": "TastyTabs is a jQuery plugin for handling content in tabs.",
+  "main": "TastyTabs.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "_npmVersion": "3.3.10",
-  "_phantomChildren": {},
-  "_requested": {
-    "name": "tastytabs",
-    "raw": "tastytabs",
-    "rawSpec": "",
-    "scope": null,
-    "spec": "*",
-    "type": "range"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_shasum": "0f70ec50240e727835d7a66d1337a2750fbf6960",
-  "_shrinkwrap": null,
-  "_spec": "tastytabs",
-  "_where": "C:\\Users\\ZalmanPC\\Documents\\npm",
-  "author": {
-    "name": "Matěj Marčišovský"
-  },
-  "bugs": {
-    "url": "https://github.com/maT7ew/TastyTabs/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matej-marcisovsky/TastyTabs"
   },
   "dependencies": {
     "jquery": ">=1.3.2"
   },
-  "description": "TastyTabs is a jQuery plugin for handling content in tabs.",
-  "devDependencies": {},
-  "directories": {},
-  "dist": {
-    "shasum": "0f70ec50240e727835d7a66d1337a2750fbf6960",
-    "tarball": "http://registry.npmjs.org/tastytabs/-/tastytabs-2.0.6.tgz"
-  },
-  "email": "matejmarcisovsky@outlook.com",
-  "homepage": "https://github.com/maT7ew/TastyTabs",
   "keywords": [
-    "ecosystem:jquery",
-    "jquery",
     "jquery-plugin",
+    "ecosystem:jquery",
     "tab",
-    "tabs"
+    "tabs",
+    "jquery"
   ],
+  "author": "Matěj Marčišovský",
+  "email": "matej@marcisovsky.cz",
   "license": "MIT",
-  "main": "TastyTabs.min.js",
-  "maintainers": [
-    {
-      "name": "mat7ew",
-      "email": "matejmarcisovsky@outlook.com"
-    }
-  ],
-  "name": "tastytabs",
-  "optionalDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maT7ew/TastyTabs.git"
+  "bugs": {
+    "url": "https://github.com/matej-marcisovsky/TastyTabs/issues"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "2.0.6"
+  "homepage": "https://github.com/matej-marcisovsky/TastyTabs"
 }

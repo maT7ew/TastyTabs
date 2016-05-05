@@ -21,7 +21,7 @@ For example:
 
 All you have to do is add following code inside your ```<head>``` tag:
 ```html
-<script src="https://cdn.jsdelivr.net/jquery.tastytabs/2.0.6/TastyTabs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.tastytabs/2.0.7/TastyTabs.min.js"></script>
 ```
 or you can download it from repository and add to your site manually.
 
