@@ -1,4 +1,4 @@
-#Welcome to the TastyTabs!
+# Welcome to the TastyTabs!
 
 TastyTabs is a jQuery plugin for handling content in tabs. Any anchor ```<a href="#tab1">First</a>``` inside any element with ```<ul class="tastyTabs">``` will show element with corresponding id attribute.
 
